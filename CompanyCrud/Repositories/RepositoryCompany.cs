@@ -58,9 +58,13 @@ namespace CompanyCrud.Repositories
             }
         }
 
-        public async Task DeleteEmployeAsync(int empoyeId)
+        public async Task DeleteEmployeAsync(int employeId)
         {
-            Employe employe =  await context.Employees.FirstOrDefaultAsync(x => x.EmployeId == empoyeId);
+            Employe? employe = await this.GetEmployeByIdAsync(employeId);
+            if (employe == null)
+            {
+                throw new Exception($"No existe el empleado con id {employeId}");
+            }
             context.Employees.Remove(employe);
             await context.SaveChangesAsync();
         }

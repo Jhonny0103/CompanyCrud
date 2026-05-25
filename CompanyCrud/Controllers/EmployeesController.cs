@@ -22,7 +22,7 @@ namespace CompanyCrud.Controllers
             return employees;
         }
 
-        [HttpGet("{id}")]
+        [HttpGet("{employeId}")]
         public async Task<ActionResult<Employe>> GetEmployeById(int employeId)
         {
             Employe employe = await this.repo.GetEmployeByIdAsync(employeId);
@@ -50,12 +50,12 @@ namespace CompanyCrud.Controllers
             }
         }
 
-        [HttpDelete("{id}")]
+        [HttpDelete("{empoyeId}")]
         public async Task<ActionResult> DeleteEmployeAsync(int empoyeId)
         {
             try
             {
-                this.repo.DeleteEmployeAsync(empoyeId);
+                await this.repo.DeleteEmployeAsync(empoyeId);
                 return Ok();
             }
             catch(Exception ex)

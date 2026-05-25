@@ -3,10 +3,7 @@
 	- Microsoft.EntityFrameworkCore
 	- Microsoft.EntityFrameworkCore.SqlServer
 	- Microsoft.EntityFrameworkCore.Tools
-2. Creamos la carpeta Data / CompanyContext.cs
-2. Creamos la conexion con la bbdd en el appsettings.json
 
-	
 2. Estructuramos el proyecto.
 	- Models
 		- Empoyees
