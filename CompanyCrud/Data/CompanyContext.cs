@@ -10,5 +10,6 @@ namespace CompanyCrud.Data
 
         public DbSet<Employe> Employees { get; set; }
         public DbSet<Dept> Depts { get; set; }
+        public DbSet<Emp_Dept> Emp_Depts { get; set; }
     }
 }

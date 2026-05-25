@@ -1,6 +1,28 @@
 ﻿using CompanyCrud.Data;
 using CompanyCrud.Models;
+using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.EntityFrameworkCore;
+
+#region Script SQL
+
+// View Crear una vista para mostrar toda la información de un empleado.
+//CREATE VIEW emp_dept
+//AS
+//	SELECT 
+//		e.EmployeId,
+//        e.EmployeName,
+//        e.LastName,
+//        e.Email,
+//        e.PhoneNumber,
+//        e.DeptId,
+//        d.DeptName,
+//        e.CreateDate,
+//        e.UpdateDate,
+//        e.IsActive
+//	FROM Employees as e
+//	INNER JOIN Dept as d ON e.DeptId = d.DeptId
+
+#endregion
 
 namespace CompanyCrud.Repositories
 {
@@ -22,6 +44,11 @@ namespace CompanyCrud.Repositories
         public async Task<List<Employe>> GetEmployeesAsync()
         {
             return await context.Employees.ToListAsync();
+        }
+
+        public async Task<List<Emp_Dept>> GetEmpDeptAsync()
+        {
+            return await context.Emp_Depts.ToListAsync();
         }
 
         public async Task<Employe> GetEmployeByIdAsync(int employeId)

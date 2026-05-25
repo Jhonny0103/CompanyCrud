@@ -16,10 +16,17 @@ namespace CompanyCrud.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<List<Employe>>> GetEMployees()
+        public async Task<ActionResult<List<Employe>>> GetEmployees()
         {
             List<Employe> employees = await this.repo.GetEmployeesAsync();
             return employees;
+        }
+
+        [HttpGet("emp-depts")]
+        public async Task<ActionResult<List<Emp_Dept>>> GetEmpDept()
+        {
+            List<Emp_Dept> emp_Depts = await this.repo.GetEmpDeptAsync();
+            return emp_Depts;
         }
 
         [HttpGet("{employeId}")]
