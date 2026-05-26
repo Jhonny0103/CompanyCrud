@@ -51,6 +51,11 @@ namespace CompanyCrud.Repositories
             return await context.Emp_Depts.ToListAsync();
         }
 
+        public async Task<List<Dept>> GetDeptsAsync()
+        {
+            return await context.Depts.ToListAsync();
+        }
+
         public async Task<Employe> GetEmployeByIdAsync(int employeId)
         {
             Employe? employe = await context.Employees.FirstOrDefaultAsync(x => x.EmployeId == employeId);

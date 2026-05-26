@@ -29,6 +29,13 @@ namespace CompanyCrud.Controllers
             return emp_Depts;
         }
 
+        [HttpGet("depts")]
+        public async Task<ActionResult<List<Dept>>> GetDepts()
+        {
+            List<Dept> departments = await this.repo.GetDeptsAsync();
+            return departments;
+        }
+
         [HttpGet("{employeId}")]
         public async Task<ActionResult<Employe>> GetEmployeById(int employeId)
         {
@@ -39,6 +46,8 @@ namespace CompanyCrud.Controllers
         [HttpPost]
         public async Task<ActionResult<Employe>> InsertEmployeAsync(Employe employe)
         {
+            employe.CreateDate = DateTime.Now;
+            employe.UpdateDate = DateTime.Now;
             await this.repo.InsertEmployeAsync(employe);
             return employe;
         }
